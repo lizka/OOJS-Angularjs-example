@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+  Created on : Sep 22, 2014, 7:03:25 PM
+ Author     : Eliza Krajewska
+-->
+<html lang="en" ng-app>
+    <head>
+        <meta charset="utf-8">
+        <title>oojs + angularjs example</title>
+        <link type="text/css" rel="stylesheet" href="css/table.css"/>
+        <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    </head>
+    <body class="main-content" ng-controller="DataCMSHandler">
+        <h2>Contents list</h2>
+        <form action="" method="post" class="table-responsive">
+            <table id="contentsTableList" class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th id="title">Title</th>
+                        <th id="author">Author</th>
+                        <th id="comment"># comments</th>
+                        <th id="pubDate">Publication date</th>
+                        <th id="upDate">Updated</th>
+                        <th id="type">Type</th>
+                        <th id="section">Section</th>
+                        <th id="language">Language</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="content in contents">
+                        <td id="{{$index}}"><input type="checkbox" ng-click="sendEventFromContentSelection($index);"></td>
+                        <td id="title{{$index}}">{{content.title}}</td>
+                        <td id="author{{$index}}">{{content.name}}</td>
+                        <td id="comment{{$index}}">{{content.comment}}</td>
+                        <td id="pubDate{{$index}}">{{content.pub_date}}</td>
+                        <td id="upDate{{$index}}">{{content.up_date}}</td>
+                        <td id="type{{$index}}">{{content.type}}</td>
+                        <td id="section{{$index}}"><a href="#">{{content.section}}</a></td>
+                        <td id="language{{$index}}">{{content.language}}</td>
+                    </tr>
+                    <tr>
+                <div id="detailsContainer" class="alert alert-info hidden details" ng-model="details">
+                    <h4>Details of the  {{details.title}}</h4> 
+                    <p># comments : {{details.comment}}</p>   
+                    <p>Section:  {{details.section}}</p>
+                    <p>Updated:    {{details.up_date}}</p>
+                    <button class='btn btn-primary right' onclick="oojs.closeDetailsOverlay();">Close</button>
+                </div>
+                </tr>
+                </tbody>
+
+
+            </table>
+            <input id="removeSelectionBtn" type="button" class="btn btn-primary" onclick="oojs.removeAllSelection();" value="Remove the selection" disabled/>
+            <input id="hideBtn" type="button" class="btn btn-primary" onclick="oojs.hideColumns();" value="Hide unnessary columns"/>
+            <input id="addAndShowBtn" type="button" class="btn btn-primary" onclick="oojs.showDetailsColumn();" value="Add and show details column"/>
+        </form>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+        <script type="text/javascript" src="js/table.js"></script>
+        <script type="text/javascript" src="js/dataCMSHandler.js"></script>
+    </body>
+</html>

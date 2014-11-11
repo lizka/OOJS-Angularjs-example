@@ -1,0 +1,42 @@
+/* 
+    Created on : Sep 22, 2014, 7:03:26 PM
+    Author     : Eliza Krajewska
+    Comment    : On a daily basis I use LESS, but in this case it's unnecessary
+*/
+
+.hidden{
+    display: none;
+}
+
+.main-content{
+    padding: 30px;
+}
+
+.details {
+    text-align: center;
+}
+.details button{
+    margin-top: 5px;
+}
+
+.selected-row{
+    background-color: rgb(196, 227, 243);
+}
+
+.table > thead > tr > td.selected-row,
+.table > tbody > tr > td.selected-row,
+.table > thead > tr > th.selected-row,
+.table > tbody > tr > th.selected-row,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th{
+  background-color: rgb(196, 227, 243);
+}
+.table-hover > tbody > tr > td.selected-row:hover,
+.table-hover > tbody > tr > th.selected-row:hover,
+.table-hover > tbody > tr.selected-row:hover > td,
+.table-hover > tbody > tr:hover > .info,
+.table-hover > tbody > tr.selected-row:hover > th {
+  background-color: rgb(196, 227, 243);
+}
